@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { DialogProductComponent } from './products/dialog-product/dialog-product.component';
 import { DialogDeleteComponent } from './common/delete/dialogdelete.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,9 @@ import { DialogDeleteComponent } from './common/delete/dialogdelete.component';
     FormsModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatSortModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

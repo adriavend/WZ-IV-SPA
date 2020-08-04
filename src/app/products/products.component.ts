@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiProductService } from '../services/api.products.service';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -8,6 +8,8 @@ import { Product } from '../models/product';
 import { DialogDeleteComponent } from '../common/delete/dialogdelete.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-products',
@@ -19,6 +21,10 @@ export class ProductsComponent implements OnInit {
   public list: any[];
   public columnas: string[] = ['id', 'description', 'category', 'subcategory', 'price', 'status', 'actions']
   readonly widthDialog: string = '500';
+
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  dataSource: MatTableDataSource<Product>;
 
   constructor(
     private apiProductService: ApiProductService, 
@@ -32,7 +38,9 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.apiProductService.getProducts().subscribe(response => {
-      this.list = response;
+      //this.list = response;
+      this.dataSource = new MatTableDataSource(response);
+      this.dataSource.sort = this.sort;
     })
   }
 
