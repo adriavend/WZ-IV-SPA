@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>{{ product != null ? 'Edit Product' : 'Create Product' }}</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="description">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Sub Category</mat-label>
+        <!-- <input type="number" matInput [(ngModel)]="idsubcategory"> -->
+        <mat-select [(ngModel)]="idsubcategory">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor='let option of listSubCategories' [value]='option.id'>{{option.name}}</mat-option>
+          </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput [(ngModel)]="price">
+    </mat-form-field>  
+    
+    <mat-checkbox [(ngModel)]="active"> {{ active ? 'Active' : 'Inactive' }} </mat-checkbox>
+    
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="product == null ? addProduct() : editProduct()">Save</button>
+</div>
+
