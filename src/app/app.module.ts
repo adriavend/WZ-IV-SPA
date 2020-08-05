@@ -30,6 +30,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatBadgeModule } from '@angular/material/badge';
 
 import { OrderComponent } from './orders/order/order.component';
+import { OrdersListComponent } from './orders/orders-list/orders-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { OrderComponent } from './orders/order/order.component';
     ProductsComponent,
     DialogProductComponent,
     DialogDeleteComponent,
-    OrderComponent
+    OrderComponent,
+    OrdersListComponent
   ],
   imports: [
     BrowserModule,

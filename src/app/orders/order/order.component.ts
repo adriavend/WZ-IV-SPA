@@ -8,7 +8,6 @@ import { ApiOrderService } from 'src/app/services/api.order.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -18,6 +17,7 @@ export class OrderComponent implements OnInit {
 
   public listProducts: Product[];
   public client: string;
+  public total: number = 0;
 
   public listItemsOrder: OrderDetail[] = new Array();
   public columns: string[] = ['id', 'description', 'quantity', 'price', 'subtotal', 'actions']
@@ -63,6 +63,7 @@ export class OrderComponent implements OnInit {
       itemFound.subTotal = itemFound.quantity * itemFound.price;
     }
     
+    this.total += product.price;
     this.refreshDataSource(); 
   }
 
