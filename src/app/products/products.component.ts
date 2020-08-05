@@ -19,7 +19,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ProductsComponent implements OnInit {
 
   public list: any[];
-  public columnas: string[] = ['id', 'description', 'category', 'subcategory', 'price', 'status', 'actions']
+  public columns: string[] = ['id', 'description', 'category', 'subcategory', 'price', 'status', 'actions']
   readonly widthDialog: string = '500';
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;

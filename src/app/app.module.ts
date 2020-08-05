@@ -27,6 +27,9 @@ import { ProductsComponent } from './products/products.component';
 import { DialogProductComponent } from './products/dialog-product/dialog-product.component';
 import { DialogDeleteComponent } from './common/delete/dialogdelete.component';
 import { MatSortModule } from '@angular/material/sort';
+import { MatBadgeModule } from '@angular/material/badge';
+
+import { OrderComponent } from './orders/order/order.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { MatSortModule } from '@angular/material/sort';
     DialogClienteComponent,
     ProductsComponent,
     DialogProductComponent,
-    DialogDeleteComponent
+    DialogDeleteComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatCheckboxModule,
     MatSelectModule,
     MatSortModule,
+    MatBadgeModule,
     HttpClientModule
 
   ],

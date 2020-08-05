@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Product List</h1>
 <div>
-    <button mat-raised-button color="primary" (click)="openAdd();">Nuevo</button>
+    <button mat-raised-button color="primary" (click)="openAdd();">New</button>
 </div>
 <br/>
 <div>
@@ -48,8 +48,8 @@
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
 
     </table>
 </div>

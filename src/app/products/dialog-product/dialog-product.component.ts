@@ -54,7 +54,7 @@ export class DialogProductComponent implements OnInit {
       id: 0,
       description: this.description, 
       idsubcategory: this.idsubcategory, 
-      price: this.price, 
+      price: parseFloat(this.price.toString()),
       active: this.active 
     };
     this.apiProductService.add(product).subscribe(response => {
