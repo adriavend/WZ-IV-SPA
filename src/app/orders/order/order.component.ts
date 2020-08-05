@@ -31,7 +31,6 @@ export class OrderComponent implements OnInit {
     public snackBar: MatSnackBar
   ) { }
   
-
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.listItemsOrder);
     this.getProducts();
@@ -69,6 +68,7 @@ export class OrderComponent implements OnInit {
 
   deleteItem(item: OrderDetail) {
     this.listItemsOrder = this.listItemsOrder.filter(f => f.idProduct != item.idProduct);
+    this.total -= item.subTotal;
     this.refreshDataSource();
   }
 
@@ -78,6 +78,7 @@ export class OrderComponent implements OnInit {
   }
 
   saveOrder() {
+        
     let orderReq: OrderRequest = {
       client: this.client,
       details: this.listItemsOrder
@@ -89,9 +90,8 @@ export class OrderComponent implements OnInit {
         duration: 2000
       });
       setTimeout(() => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/orders']);
       }, 2100);
     });
-
   }
 }

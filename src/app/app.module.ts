@@ -14,7 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatSelectModule } from '@angular/material/select'
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatError } from '@angular/material/form-field';
 
 import { HttpClientModule } from '@angular/common/http'
 

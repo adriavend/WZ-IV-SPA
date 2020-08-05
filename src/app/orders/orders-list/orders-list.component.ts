@@ -12,8 +12,14 @@ import { Router } from '@angular/router';
 })
 export class OrdersListComponent implements OnInit {
 
-  public list: any[];
+  public list: OrderResponse[] = new Array();
   public columns: string[] = ['id', 'client', 'date', 'total', 'actions']
+
+  dateFromFilter: Date;
+  dateToFilter: Date;
+
+  priceFromFilter: number;
+  priceToFilter: number;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   
@@ -30,6 +36,7 @@ export class OrdersListComponent implements OnInit {
 
   getOrders() {
     this.apiOrderService.getOrders().subscribe(response => {
+      this.list = response;
       this.dataSource = new MatTableDataSource(response);
       this.dataSource.sort = this.sort;
     });
@@ -37,5 +44,20 @@ export class OrdersListComponent implements OnInit {
 
   newOrder() {
     this.router.navigate(['/new-order']);
+  }
+
+  filter(){
+    let listFilter = this.list.filter(f => f.total >= this.priceFromFilter && f.total <= this.priceToFilter);
+    this.refreshDataSource(listFilter);
+  }
+
+  refreshDataSource(list: any[]) {
+    this.dataSource.data = list;
+  }
+
+  cleanfilters() {
+    this.priceFromFilter = null;
+    this.priceToFilter = null;
+    this.refreshDataSource(this.list);
   }
 }
