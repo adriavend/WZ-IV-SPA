@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogClienteComponent } from 'src/app/cliente/dialog/dialogcliente.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiProductService } from 'src/app/services/api.products.service';
 
@@ -25,7 +24,7 @@ export class DialogProductComponent implements OnInit {
   active: boolean = true;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogClienteComponent>,
+    public dialogRef: MatDialogRef<DialogProductComponent>,
     public apiProductService: ApiProductService,
     public snackBar: MatSnackBar,
     private apiSubCategoryService: ApiSubcategoryService,
