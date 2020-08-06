@@ -3,6 +3,7 @@ import { OrderRequest } from '../models/order/orderRequest';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { OrderResponse } from '../models/order/OrderResponse';
+import * as glob from '../globals';
 
 const httpOption = {
     headers: new HttpHeaders({
@@ -15,7 +16,7 @@ const httpOption = {
 })
 export class ApiOrderService {
 
-    url: string = 'http://localhost:9108/api/order'
+    url: string = glob.apiEndPoint + '/order'
 
     constructor(private _http: HttpClient) 
     { }

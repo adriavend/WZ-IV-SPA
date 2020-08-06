@@ -2,16 +2,18 @@
 
 <mat-form-field>
     <mat-label>Customer: </mat-label>
-    <input matInput [(ngModel)]="client" required>
-    <mat-error *ngIf="client == ''">Enter Customer</mat-error>
+    <input matInput [formControl]="customer" required>
+    <!-- <mat-error *ngIf="customer.invalid">Customer is required</mat-error> -->
 </mat-form-field>
 
-<p *ngFor='let product of listProducts' style="margin-left: 10px;">
-    <button  mat-raised-button color="primary" 
-    matBadge="{{ product.price }}" matBadgePosition="after" matBadgeColor="accent"
-    (click)="addItem(product)"
-    >{{ product.description }}</button>
-</p>
+<div style="display: flex;">
+    <p *ngFor='let product of listProducts' style="margin-left: 10px;">
+        <button  mat-raised-button color="link"
+        matBadge="{{ product.price }}" matBadgePosition="after" matBadgeColor="accent"
+        (click)="addItem(product)">{{ product.description }}</button>
+    </p>
+</div>
+
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z4">
     <ng-container matColumnDef="id">

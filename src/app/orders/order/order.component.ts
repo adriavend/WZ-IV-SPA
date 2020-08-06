@@ -7,6 +7,7 @@ import { OrderRequest } from 'src/app/models/order/orderRequest';
 import { ApiOrderService } from 'src/app/services/api.order.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
@@ -16,13 +17,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class OrderComponent implements OnInit {
 
   public listProducts: Product[];
-  public client: string;
   public total: number = 0;
 
   public listItemsOrder: OrderDetail[] = new Array();
   public columns: string[] = ['id', 'description', 'quantity', 'price', 'subtotal', 'actions']
 
   dataSource: MatTableDataSource<OrderDetail>;
+
+  customer = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
     private apiProductService: ApiProductService,
@@ -78,9 +80,16 @@ export class OrderComponent implements OnInit {
   }
 
   saveOrder() {
-        
+    
+    if (this.listItemsOrder.length == 0){
+      this.snackBar.open('Must add Items', '', {
+        duration: 2000
+      });
+      return;
+    }
+
     let orderReq: OrderRequest = {
-      client: this.client,
+      client: this.customer.value,
       details: this.listItemsOrder
     }   
     

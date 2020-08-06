@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SubCategory } from '../models/subcategory';
+import * as glob from '../globals';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiSubcategoryService {
 
-  url: string = 'http://localhost:9108/api/subcategory';
+  url: string = glob.apiEndPoint + '/subcategory';
 
   constructor(private _http: HttpClient) { }
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 // import { Response } from '../models/response';
 import { Product } from '../models/product';
 import { ProductRequestDto } from '../models/product/productRequestDto';
+import * as glob from '../globals';
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOption = {
 })
 export class ApiProductService {
 
-  url: string = 'http://localhost:9108/api/product';
+  url: string = glob.apiEndPoint + '/product';
 
   constructor(private _http: HttpClient) { }
 
