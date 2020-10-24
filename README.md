@@ -1,4 +1,4 @@
-# WZ - Interview Exercise - APP ANGULAR 9
+# WZ - Interview Exercise - SPA ANGULAR 9
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
